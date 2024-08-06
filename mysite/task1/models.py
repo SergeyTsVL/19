@@ -12,13 +12,13 @@ class Buyer(models.Model):
 class Game(models.Model):
     title = models.CharField(max_length=100)
     cost = models.IntegerField()
-    description = models.TimeField()
+    description = models.CharField(max_length=100)
     size = models.DecimalField(decimal_places=2, max_digits=100)
     age_limited = models.BooleanField()
     buyer = models.ManyToManyField(Buyer, related_name='правобладатель')
 
     def __str__(self):
-        return self.name
+        return self.title
 
 # Buyer.objects.create(name='Vasya', balance='1.1', age='20')
 
