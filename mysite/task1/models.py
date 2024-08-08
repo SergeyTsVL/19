@@ -5,6 +5,7 @@ class Buyer(models.Model):
     name = models.CharField(max_length=100)
     balance = models.DecimalField(max_length=100, decimal_places=2, max_digits=100)
     age = models.IntegerField()
+    password = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
@@ -20,8 +21,6 @@ class Game(models.Model):
     def __str__(self):
         return self.title
 
-# Buyer.objects.create(name='Vasya', balance='1.1', age='20')
-
-# python manage.py makemigrations blog
-# python manage.py sqlmigrate blog 0001
+# python manage.py makemigrations
+# python manage.py sqlmigrate blog
 # python manage.py migrate
