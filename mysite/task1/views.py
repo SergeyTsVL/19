@@ -2,7 +2,7 @@ from os import name
 import sqlite3
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Buyer, Game      #, Registration
+from task1.models import Buyer, Game      #, Registration
 
 
 # Create your views here.
@@ -17,24 +17,26 @@ def index(request):
 
 def index2(request):
     # Изменяю шаблоны согласно заданию
-    list_Game_title = []
-    list_Game_description = []
-    list_common = []
-    Game_objects = Game.objects.all()
-    a = Game_objects.values()
-    for i in range(0, len(a)):
-        b = a[i]
-        list_Game_title.append(b.get('title'))
-        list_Game_description.append(b.get('description'))
-        d = list_Game_title[i] + ' | ' + list_Game_description[i]
-        list_common.append(d)
+    # list_Game_title = []
+    # list_Game_description = []
+    # list_common = []
+    # Game_objects = Game.objects.all()
+    # a = Game_objects.values()
+    # for i in range(0, len(a)):
+    #     b = a[i]
+    #     list_Game_title.append(b.get('title'))
+    #     list_Game_description.append(b.get('description'))
+    #     d = list_Game_title[i] + ' | ' + list_Game_description[i]
+    #     list_common.append(d)
+    #
+    # context = {
+    #     'Chess': list_common[0],
+    #     'Ciberpunk_2077': list_common[1],
+    #     'PayDay': list_common[2],
+    # }
+    games = Game.objects.all()
 
-    context = {
-        'Chess': list_common[0],
-        'Ciberpunk_2077': list_common[1],
-        'PayDay': list_common[2],
-    }
-    return render(request, 'third_task/gemes.html', context)
+    return render(request, 'third_task/gemes.html',  {'games': games})
 
 def index3(request):
     text4 = 'Корзина'

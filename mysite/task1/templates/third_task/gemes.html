@@ -9,21 +9,11 @@
 </body>
 <body>
     <header>
-    <h1>Игры</h1>
-    <ul>
-        <li>{{ Chess }}<button>Купить</button></li>
-    </ul>
-    <ul>
-        <li>{{ Ciberpunk_2077 }}<button>Купить</button></li>
-    </ul>
-    <ul>
-        <li>{{ PayDay }}<button>Купить</button></li>
-    </ul>
+    <h1>Список игр</h1>
     </header>
-</body>
-
-</head>
-<body>
+    {% for game in games %}
+        <h3>{{ game }}  |  {{ game.description }} | {{ game.cost }} <button>Купить</button></h3>
+    {% endfor %}
 
 </body>
 </html>

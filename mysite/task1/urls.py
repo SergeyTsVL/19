@@ -7,4 +7,3 @@ urlpatterns = [
     path('registration/platform/cart/', views.index3, name='index3'),
     path('registration/', views.index4, name='index4'),
 ]
-
